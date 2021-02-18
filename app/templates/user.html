@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Flasky - {{ user.username }}{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
+    <div class="profile-header">
+        <h1>{{ user.username }}</h1>
+        {% if user.name or user.location %}
+        <p>
+            {% if user.name %}{{ user.name }}<br>{% endif %}
+            {% if user.location %}
+                from <a href="http://maps.google.com/?q={{ user.location }}">{{ user.location }}</a><br>
+            {% endif %}
+        </p>
+        {% endif %}
+        {% if current_user.is_administrator() %}
+        <p><a href="mailto:{{ user.phone }}">{{ user.phone }}</a></p>
+        {% endif %}
+        {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+        <p>Member since {{ moment(user.member_since).format('L') }}. Last seen {{ moment(user.last_seen).fromNow() }}.</p>
+        <p>
+            {% if user == current_user and (user.role_id==1 or user.role_id==2)%}
+            <a class="btn btn-default" href="{{ url_for('.edit_profile') }}">上传文件</a>
+            {% endif %}
+            {% if current_user.is_administrator() %}
+            <a class="btn btn-danger" href="{{ url_for('.edit_profile_admin', id=user.id) }}">文件管理</a>
+            {% endif %}
+        </p>
+    </div>
+</div>
+<div>
+    <li>test1.xlsx
+        <a  href="{{ url_for}}">下载</a>
+        <a  href="{{ url_for}}">审核通过</a>
+    </li>
+    <li>test123456.xlsx
+        <a  href="{{ url_for}}">下载</a>
+        <a  href="{{ url_for}}">审核通过</a>
+    </li>
+    <li>test123.xlsx
+        <a  href="{{ url_for}}">下载</a>
+        <a  href="{{ url_for}}">审核通过</a>
+    </li>
+</div>
+{% endblock %}

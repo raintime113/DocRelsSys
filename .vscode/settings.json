@@ -1,0 +1,18 @@
+{
+    "python.pythonPath": "D:\\ProgramData\\Anaconda3\\envs\\zz_flask\\python.exe",
+    //"python.dataScience.sendSelectionToInteractiveWindow": true,
+    //"editor.suggestSelection": "first",
+    //"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    //"java.semanticHighlighting.enabled": true,
+    //"python.jediEnabled": false,
+    //"workbench.settings.editor": "ui",
+    //"python.languageServer": "Jedi",
+    "python.autoComplete.extraPaths": [
+    
+        //"D:\\ProgramData\\Anaconda3\\envs\\zz_flask\\lib\\site-packages",
+        "D:\\ProgramData\\Anaconda3\\envs\\zz_flask",
+        //"D:\\ProgramData\\Anaconda3\\envs\\zz_flask\\Script"
+    ],
+    "python.venvPath": "D:\\ProgramData\\Anaconda3\\envs",
+    //"terminal.integrated.automationShell.windows": "C:\\WINDOWS\\System32\\cmd.exe"
+}
